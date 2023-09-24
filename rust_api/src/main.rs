@@ -17,11 +17,12 @@ async fn manual_hello() -> impl Responder {
 }
 
 const USERS_MICROSERVER_URL: &str = "http://127.0.0.1:8000"; // Replace with actual URL
-const CARS_MICROSERVER_URL: &str = "http://127.0.0.1:8082";  // Replace with actual URL
-
+const CARS_MICROSERVER_URL: &str = "http://127.0.0.1:8001";  // Replace with actual URL
 
 // Users endpoint handler
 async fn users_handler(req: HttpRequest) -> HttpResponse {
+
+    println!("Request: {:?}", req.uri());
     let request_url = format!("{}{}", USERS_MICROSERVER_URL, req.uri());
     match reqwest::Client::new().get(&request_url).send().await {
         Ok(response) => {
@@ -34,6 +35,8 @@ async fn users_handler(req: HttpRequest) -> HttpResponse {
 
 // Cars endpoint handler
 async fn cars_handler(req: HttpRequest) -> HttpResponse {
+
+    println!("Request: {:?}", req.uri());
     let request_url = format!("{}{}", CARS_MICROSERVER_URL, req.uri());
     match reqwest::Client::new().get(&request_url).send().await {
         Ok(response) => {
@@ -52,6 +55,8 @@ async fn main() -> std::io::Result<()> {
             .service(hello)
             .service(echo)
             .route("/hey", web::get().to(manual_hello))
+            .service(web::resource("/users/{tail:.*}").to(users_handler))
+            .service(web::resource("/cars/{tail:.*}").to(cars_handler))
     })
     .bind(("127.0.0.1", 8080))?
     .run()
