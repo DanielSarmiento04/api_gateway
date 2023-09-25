@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker python image
-      run: docker build ./users/ --file Dockerfile --tag  user_api:$(date +%s)
+      run: docker build ./users/Dockerfile --file Dockerfile --tag  user_api:$(date +%s)
