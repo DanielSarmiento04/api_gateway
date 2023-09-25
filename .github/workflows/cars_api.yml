@@ -1,4 +1,4 @@
-name: User Image Docker
+name: Cars Image Docker
 
 on:
   push:
