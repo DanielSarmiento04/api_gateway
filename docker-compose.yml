@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+
+  aoi_gateway:
+    build: ./rust_api/
+    container_name: api_gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - gateway
+    depends_on:
+      - ngnx_proxy
+
+  nginx_proxy:    
+    build: ./nginx/    
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - gateway
+    
+    
+
+networks:
+  gateway:
+    driver: bridge
+
