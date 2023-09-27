@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./rust_api/ --file ./rust_api/Dockerfile --tag rust_api:$(date +%s)
+      run: docker build ./rust_api_gateway/ --file ./rust_api_gateway/Dockerfile --tag rust_api:$(date +%s)

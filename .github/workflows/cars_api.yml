@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./cars/ --file ./cars/Dockerfile --tag cars:$(date +%s)
+      run: docker build ./bun_cars/ --file ./bun_cars/Dockerfile --tag cars:$(date +%s)
