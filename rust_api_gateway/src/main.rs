@@ -4,7 +4,9 @@ use reqwest;
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+
+    let message = {"message"= "hello"};
+    return HttpResponse::Ok().body("Hello world!");
 }
 
 #[post("/echo")]

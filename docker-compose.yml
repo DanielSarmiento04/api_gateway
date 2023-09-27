@@ -2,15 +2,15 @@ version: '3.4'
 
 services:
 
-  aoi_gateway:
-    build: ./rust_api/
-    container_name: api_gateway
-    ports:
-      - "8080:8080"
-    networks:
-      - gateway
-    depends_on:
-      - ngnx_proxy
+  # api_gateway:
+  #   build: ./rust_api_gateway/
+  #   container_name: api_gateway
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - gateway
+  #   depends_on:
+  #     - ngnx_proxy
 
   nginx_proxy:    
     build: ./nginx/    
@@ -21,7 +21,25 @@ services:
     networks:
       - gateway
     
-    
+  cars_api:
+    build: ./bun_cars/
+    container_name: cars_api
+    ports:
+      - "8001:8001"
+    networks:
+      - gateway
+    depends_on:
+      - nginx_proxy
+
+  users_api:
+    build: ./python_users/
+    container_name: users_api
+    ports:
+      - "8000:8000"
+    networks:
+      - gateway
+    depends_on:
+      - nginx_proxy
 
 networks:
   gateway:
