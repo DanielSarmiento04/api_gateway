@@ -1,7 +1,7 @@
 FROM rust:1.72
 
 # # Set the working directory
-WORKDIR /rust_api
+WORKDIR /rust_api_gateway
 
 # Copy the source code
 COPY ./src /rust_api_gateway/src

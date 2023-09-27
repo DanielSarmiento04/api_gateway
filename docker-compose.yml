@@ -2,15 +2,16 @@ version: '3.4'
 
 services:
 
-  # api_gateway:
-  #   build: ./rust_api_gateway/
-  #   container_name: api_gateway
-  #   ports:
-  #     - "8080:8080"
-  #   networks:
-  #     - gateway
-  #   depends_on:
-  #     - ngnx_proxy
+  api_gateway:
+    build: ./rust_api_gateway/
+    container_name: api_gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - gateway
+    links: # This should make visible to other applications
+      - cars_api
+      - users_api
 
   nginx_proxy:    
     build: ./nginx/    
@@ -28,8 +29,8 @@ services:
       - "8001:8001"
     networks:
       - gateway
-    depends_on:
-      - nginx_proxy
+    # depends_on:
+    #   - nginx_proxy
 
   users_api:
     build: ./python_users/
@@ -38,8 +39,8 @@ services:
       - "8000:8000"
     networks:
       - gateway
-    depends_on:
-      - nginx_proxy
+    # depends_on:
+    #   - nginx_proxy
 
 networks:
   gateway:
