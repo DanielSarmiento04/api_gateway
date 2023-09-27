@@ -11,8 +11,10 @@ COPY nginx.conf /etc/nginx/conf.d/
 COPY ser.key /etc/nginx/
 COPY ser.pem /etc/nginx/
 
+
 # Expose ports
-EXPOSE 80 443
+EXPOSE 80
+EXPOSE 443
 
 # Set the default command to execute
 CMD ["nginx", "-g", "daemon off;"]

@@ -2,6 +2,17 @@ version: '3.4'
 
 services:
 
+  nginx_server_proxy:    
+    build: ./nginx/    
+    container_name: nginx_server_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - gateway
+    depends_on:
+      - api_gateway
+
   api_gateway:
     build: ./rust_api_gateway/
     container_name: api_gateway
@@ -12,15 +23,6 @@ services:
     links: # This should make visible to other applications
       - cars_api
       - users_api
-
-  nginx_proxy:    
-    build: ./nginx/    
-    container_name: nginx_proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - gateway
     
   cars_api:
     build: ./bun_cars/

@@ -36,6 +36,7 @@ sudo openssl req -new -newkey rsa:2048 -nodes -keyout tudominio.key -out tudomin
  
 
 
+docker-compose up -d --remove-orphans
 
 
 

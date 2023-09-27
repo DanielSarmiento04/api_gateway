@@ -18,4 +18,4 @@ RUN cargo build --release
 # EXPOSE the project
 EXPOSE 8080
 
-CMD ["/rust_api/target/release/rust_api_gateway"]
+CMD ["/rust_api_gateway/target/release/rust_api_gateway"]
