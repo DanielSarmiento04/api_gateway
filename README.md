@@ -1,6 +1,6 @@
-# *Api Gateway*
+# **Api Gateway**
 
-##  Resume
+## Abstract
 
 The objective of this repository is make simple api gateway using rust as management, ngnx as server proxy and some microserver bellow api gateway
 
@@ -11,7 +11,7 @@ The objective of this repository is make simple api gateway using rust as manage
 2. [Setup](#setup)
 
 
-### Introduction
+## Introduction
 
 A simple schema that the project try to follow is the next
 
@@ -28,7 +28,7 @@ Folder strcuture
 - ngnx (server proxy)
 
 
-### SetUp
+## SetUp
 
 ```
 sudo openssl req -new -newkey rsa:2048 -nodes -keyout tudominio.key -out tudominio.csr
