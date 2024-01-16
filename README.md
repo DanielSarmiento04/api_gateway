@@ -12,7 +12,7 @@ An ApiGateway is a traffic management service that provides access between micro
 
 ## Introduction
 
-A simple schema that the project try to follow is the next
+A simple schema that the project follow is the next
 
 <p align="center">
   <img src="docs/Diagrams.jpg" height ="300px">

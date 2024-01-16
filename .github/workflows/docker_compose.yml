@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Compose Cli
 
 on:
   push:
@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: adambirds/docker-compose-action@v1.3.0
+      - name: Build the container image
         with:
           compose-file: docker-compose.yml
        
