@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: adambirds/docker-compose-action@v1.3.0
-      - name: Build the container image
-        with:
-          compose-file: docker-compose.yml
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up -d
        

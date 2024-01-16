@@ -12,22 +12,24 @@ An ApiGateway is a traffic management service that provides access between micro
 
 ## Introduction
 
-A simple schema that the project follow is the next
+A simple schema that the project follow is the next.
 
 <p align="center">
   <img src="docs/Diagrams.jpg" height ="300px">
 </p>
 
 
-Folder strcuture
+Folder structure,
 
-- cars (javascript/bun)
-- users (python/fastapi)
-- rust_api (rust api gateway)
-- ngnx (server proxy)
+- bun_cars (javascript/bun), cars api.
+- python_users (python/FastApi), users api.
+- rust_api_gateway (rust api gateway), rust api gateway
+- ngnx (server proxy), servers proxy server
 
 
 ## SetUp
+
+1. The repository use a custom key with open ssl to create the certificates.
 
 ```
 sudo openssl req -new -newkey rsa:2048 -nodes -keyout tudominio.key -out tudominio.csr
