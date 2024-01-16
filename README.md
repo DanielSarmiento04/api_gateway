@@ -14,7 +14,11 @@ The objective of this repository is make simple api gateway using rust as manage
 ### Introduction
 
 A simple schema that the project try to follow is the next
-![](docs/Diagrams.png)
+
+<p align="center">
+  <img src="docs/Diagrams.jpg" height ="300px">
+</p>
+
 
 Folder strcuture
 
@@ -37,6 +41,15 @@ sudo openssl req -new -newkey rsa:2048 -nodes -keyout tudominio.key -out tudomin
 
 
 docker-compose up -d --remove-orphans
+
+
+## References
+
+
+
+- Images
+    - <a href="https://freepngimg.com/png/86146-icons-mobile-symbol-accessories-phone-computer-logo">Icons Mobile Symbol Accessories Phone Computer Logo from FreePNGImg.com</a>
+    
 
 
 
