@@ -2,8 +2,7 @@
 
 ## Abstract
 
-The objective of this repository is make simple api gateway using rust as management, ngnx as server proxy and some microserver bellow api gateway
-
+An ApiGateway is a traffic management service that provides access between micro service layer and external clients. This repository aims to provide an example of `how to use`  Rust (with Actix and reqwst) as ApiGateway. The methodology used is consider and server proxy to load a security ssl configuration, after the load must go to the ApiGateway, depending of the prefix route `/prefix` may redirect to specific micro service. To simplify the deployment and development The system use docker and specialist docker compose to manage that.
 
 ## Table of code
 
@@ -34,7 +33,7 @@ Folder strcuture
 sudo openssl req -new -newkey rsa:2048 -nodes -keyout tudominio.key -out tudominio.csr
 ```
 
-> Each component can build using docker, each folder can build separatly
+> Each component can build using docker, each folder can build separately
 
 > As suggestion, create a network and run the docker container over this network
  
